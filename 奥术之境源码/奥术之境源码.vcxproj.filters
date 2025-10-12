@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\cJSON">
+      <UniqueIdentifier>{9d275436-c16a-4b4d-8f5d-3e1c7c55e536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\manager">
+      <UniqueIdentifier>{8765f237-95a0-44e3-9e94-d3c63190b68b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\UI">
+      <UniqueIdentifier>{f1d4202f-2385-40fe-84bc-90de5a2be048}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\magic">
+      <UniqueIdentifier>{04eced1c-8942-442b-89b7-d6f13903533f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\buff">
+      <UniqueIdentifier>{5b90f632-e402-48b3-a2cc-4e874fac4495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\scene">
+      <UniqueIdentifier>{6984115b-136c-4215-ae8c-9078aabcdaec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\object">
+      <UniqueIdentifier>{3b610be0-4705-4250-ba48-9587475e46f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\object\enemy">
+      <UniqueIdentifier>{c4e60616-a678-44e2-886c-67dd89e7ec8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\object\player">
+      <UniqueIdentifier>{681a7cdf-efa2-4436-8db7-a40a3ed738d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\object\bullet">
+      <UniqueIdentifier>{2c4543f6-7207-466a-ab76-1a97919a6014}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mian.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\cJSON\cJSON.c">
+      <Filter>源文件\cJSON</Filter>
+    </ClCompile>
+    <ClCompile Include="random_number.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vector2.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="retention.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="animation.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="buff.cpp">
+      <Filter>头文件\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="config_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="resources_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="buff_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="burn_buff.cpp">
+      <Filter>头文件\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="recover_buff.cpp">
+      <Filter>头文件\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="speed_up_buff.cpp">
+      <Filter>头文件\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cpp">
+      <Filter>头文件\object\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="slime_enemy.cpp">
+      <Filter>头文件\object\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="gunner_enemy.cpp">
+      <Filter>头文件\object\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="deadman_enemy.cpp">
+      <Filter>头文件\object\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="big_slime_enemy.cpp">
+      <Filter>头文件\object\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet.cpp">
+      <Filter>头文件\object\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="fireball_bullet.cpp">
+      <Filter>头文件\object\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="lava_vortex_bullet.cpp">
+      <Filter>头文件\object\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="lighting_bullet.cpp">
+      <Filter>头文件\object\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="lighting_strike_bullet.cpp">
+      <Filter>头文件\object\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="normal_attack_bullet.cpp">
+      <Filter>头文件\object\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="retention_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ui_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>头文件\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="status_bar_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="magic.cpp">
+      <Filter>头文件\magic</Filter>
+    </ClCompile>
+    <ClCompile Include="zeus_fury_magic.cpp">
+      <Filter>头文件\magic</Filter>
+    </ClCompile>
+    <ClCompile Include="wind_spell_magic.cpp">
+      <Filter>头文件\magic</Filter>
+    </ClCompile>
+    <ClCompile Include="minor_healing_spell_magic.cpp">
+      <Filter>头文件\magic</Filter>
+    </ClCompile>
+    <ClCompile Include="lighting_strike_magic.cpp">
+      <Filter>头文件\magic</Filter>
+    </ClCompile>
+    <ClCompile Include="lava_vortex_magic.cpp">
+      <Filter>头文件\magic</Filter>
+    </ClCompile>
+    <ClCompile Include="fireball_magic.cpp">
+      <Filter>头文件\magic</Filter>
+    </ClCompile>
+    <ClCompile Include="burning_spell_magic.cpp">
+      <Filter>头文件\magic</Filter>
+    </ClCompile>
+    <ClCompile Include="magic_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>头文件\object\player</Filter>
+    </ClCompile>
+    <ClCompile Include="player_Claude.cpp">
+      <Filter>头文件\object\player</Filter>
+    </ClCompile>
+    <ClCompile Include="player_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>头文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="select_scene.cpp">
+      <Filter>头文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="menu_scene.cpp">
+      <Filter>头文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="game_scene.cpp">
+      <Filter>头文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="select.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="scene_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="game_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="object.cpp">
+      <Filter>头文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="collide_box.cpp">
+      <Filter>头文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="collision_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="enemybullet.cpp">
+      <Filter>头文件\object\bullet</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="timer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="config_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="resources_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="player_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>头文件\object\player</Filter>
+    </ClInclude>
+    <ClInclude Include="player_Claude.h">
+      <Filter>头文件\object\player</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>头文件\object\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="slime_enemy.h">
+      <Filter>头文件\object\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="deadman_enemy.h">
+      <Filter>头文件\object\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>头文件\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet.h">
+      <Filter>头文件\object\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="normal_attack_bullet.h">
+      <Filter>头文件\object\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet_type.h">
+      <Filter>头文件\object\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="magic_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="magic.h">
+      <Filter>头文件\magic</Filter>
+    </ClInclude>
+    <ClInclude Include="fireball_magic.h">
+      <Filter>头文件\magic</Filter>
+    </ClInclude>
+    <ClInclude Include="status_bar_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="fireball_bullet.h">
+      <Filter>头文件\object\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="buff_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="buff.h">
+      <Filter>头文件\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="burn_buff.h">
+      <Filter>头文件\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="buff_type.h">
+      <Filter>头文件\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="burning_spell_magic.h">
+      <Filter>头文件\magic</Filter>
+    </ClInclude>
+    <ClInclude Include="random_number.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="recover_buff.h">
+      <Filter>头文件\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="minor_healing_spell_magic.h">
+      <Filter>头文件\magic</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy_type.h">
+      <Filter>头文件\object\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_scene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="select_scene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="game_scene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="gunner_enemy.h">
+      <Filter>头文件\object\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="lighting_strike_magic.h">
+      <Filter>头文件\magic</Filter>
+    </ClInclude>
+    <ClInclude Include="lighting_strike_bullet.h">
+      <Filter>头文件\object\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="speed_up_buff.h">
+      <Filter>头文件\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="wind_spell_magic.h">
+      <Filter>头文件\magic</Filter>
+    </ClInclude>
+    <ClInclude Include="big_slime_enemy.h">
+      <Filter>头文件\object\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="select.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lava_vortex_magic.h">
+      <Filter>头文件\magic</Filter>
+    </ClInclude>
+    <ClInclude Include="lava_vortex_bullet.h">
+      <Filter>头文件\object\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="retention.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="retention_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="zeus_fury_magic.h">
+      <Filter>头文件\magic</Filter>
+    </ClInclude>
+    <ClInclude Include="lighting_bullet.h">
+      <Filter>头文件\object\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="object.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="collide_box.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="collision_layer.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="collision_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="enemybullet.h">
+      <Filter>头文件\object\bullet</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

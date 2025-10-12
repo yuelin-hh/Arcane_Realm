@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{5cf584e1-90b3-45ee-bc10-e0b21589db2b}</ProjectGuid>
+    <RootNamespace>奥术之境源码</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\奥术之境源码\thirdparty\cJSON\include;..\奥术之境源码\thirdparty\SDL2_ttf\include;..\奥术之境源码\thirdparty\SDL2_mixer\include;..\奥术之境源码\thirdparty\SDL2_image\include;..\奥术之境源码\thirdparty\SDL2_gfx\include;..\奥术之境源码\thirdparty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\奥术之境源码\thirdparty\SDL2_ttf\lib\x64;..\奥术之境源码\thirdparty\SDL2_mixer\lib\x64;..\奥术之境源码\thirdparty\SDL2_image\lib\x64;..\奥术之境源码\thirdparty\SDL2_gfx\lib\x64;..\奥术之境源码\thirdparty\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_gfx.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\奥术之境源码\thirdparty\cJSON\include;..\奥术之境源码\thirdparty\SDL2_ttf\include;..\奥术之境源码\thirdparty\SDL2_mixer\include;..\奥术之境源码\thirdparty\SDL2_image\include;..\奥术之境源码\thirdparty\SDL2_gfx\include;..\奥术之境源码\thirdparty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\奥术之境源码\thirdparty\SDL2_ttf\lib\x64;..\奥术之境源码\thirdparty\SDL2_mixer\lib\x64;..\奥术之境源码\thirdparty\SDL2_image\lib\x64;..\奥术之境源码\thirdparty\SDL2_gfx\lib\x64;..\奥术之境源码\thirdparty\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_gfx.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="animation.cpp" />
+    <ClCompile Include="big_slime_enemy.cpp" />
+    <ClCompile Include="buff.cpp" />
+    <ClCompile Include="buff_manager.cpp" />
+    <ClCompile Include="bullet.cpp" />
+    <ClCompile Include="bullet_manager.cpp" />
+    <ClCompile Include="burning_spell_magic.cpp" />
+    <ClCompile Include="burn_buff.cpp" />
+    <ClCompile Include="camera_manager.cpp" />
+    <ClCompile Include="collide_box.cpp" />
+    <ClCompile Include="collision_manager.cpp" />
+    <ClCompile Include="config_manager.cpp" />
+    <ClCompile Include="deadman_enemy.cpp" />
+    <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="enemybullet.cpp" />
+    <ClCompile Include="enemy_manager.cpp" />
+    <ClCompile Include="fireball_bullet.cpp" />
+    <ClCompile Include="fireball_magic.cpp" />
+    <ClCompile Include="game_manager.cpp" />
+    <ClCompile Include="game_scene.cpp" />
+    <ClCompile Include="gunner_enemy.cpp" />
+    <ClCompile Include="lava_vortex_bullet.cpp" />
+    <ClCompile Include="lava_vortex_magic.cpp" />
+    <ClCompile Include="lighting_bullet.cpp" />
+    <ClCompile Include="lighting_strike_bullet.cpp" />
+    <ClCompile Include="lighting_strike_magic.cpp" />
+    <ClCompile Include="magic.cpp" />
+    <ClCompile Include="magic_manager.cpp" />
+    <ClCompile Include="menu_scene.cpp" />
+    <ClCompile Include="mian.cpp" />
+    <ClCompile Include="minor_healing_spell_magic.cpp" />
+    <ClCompile Include="mouse_manager.cpp" />
+    <ClCompile Include="normal_attack_bullet.cpp" />
+    <ClCompile Include="object.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="player_Claude.cpp" />
+    <ClCompile Include="player_manager.cpp" />
+    <ClCompile Include="random_number.cpp" />
+    <ClCompile Include="recover_buff.cpp" />
+    <ClCompile Include="resources_manager.cpp" />
+    <ClCompile Include="retention.cpp" />
+    <ClCompile Include="retention_manager.cpp" />
+    <ClCompile Include="scene.cpp" />
+    <ClCompile Include="scene_manager.cpp" />
+    <ClCompile Include="select.cpp" />
+    <ClCompile Include="select_scene.cpp" />
+    <ClCompile Include="slime_enemy.cpp" />
+    <ClCompile Include="speed_up_buff.cpp" />
+    <ClCompile Include="status_bar_manager.cpp" />
+    <ClCompile Include="thirdparty\cJSON\cJSON.c" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="tools.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="ui_manager.cpp" />
+    <ClCompile Include="vector2.cpp" />
+    <ClCompile Include="wind_spell_magic.cpp" />
+    <ClCompile Include="zeus_fury_magic.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="animation.h" />
+    <ClInclude Include="big_slime_enemy.h" />
+    <ClInclude Include="buff.h" />
+    <ClInclude Include="buff_manager.h" />
+    <ClInclude Include="buff_type.h" />
+    <ClInclude Include="bullet.h" />
+    <ClInclude Include="bullet_manager.h" />
+    <ClInclude Include="bullet_type.h" />
+    <ClInclude Include="burning_spell_magic.h" />
+    <ClInclude Include="burn_buff.h" />
+    <ClInclude Include="camera_manager.h" />
+    <ClInclude Include="collide_box.h" />
+    <ClInclude Include="collision_layer.h" />
+    <ClInclude Include="collision_manager.h" />
+    <ClInclude Include="config_manager.h" />
+    <ClInclude Include="deadman_enemy.h" />
+    <ClInclude Include="enemy.h" />
+    <ClInclude Include="enemybullet.h" />
+    <ClInclude Include="enemy_manager.h" />
+    <ClInclude Include="enemy_type.h" />
+    <ClInclude Include="fireball_bullet.h" />
+    <ClInclude Include="fireball_magic.h" />
+    <ClInclude Include="game_manager.h" />
+    <ClInclude Include="game_scene.h" />
+    <ClInclude Include="gunner_enemy.h" />
+    <ClInclude Include="lava_vortex_bullet.h" />
+    <ClInclude Include="lava_vortex_magic.h" />
+    <ClInclude Include="lighting_bullet.h" />
+    <ClInclude Include="lighting_strike_magic.h" />
+    <ClInclude Include="lighting_strike_bullet.h" />
+    <ClInclude Include="magic.h" />
+    <ClInclude Include="magic_manager.h" />
+    <ClInclude Include="manager.h" />
+    <ClInclude Include="menu_scene.h" />
+    <ClInclude Include="minor_healing_spell_magic.h" />
+    <ClInclude Include="mouse_manager.h" />
+    <ClInclude Include="normal_attack_bullet.h" />
+    <ClInclude Include="object.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="player_Claude.h" />
+    <ClInclude Include="player_manager.h" />
+    <ClInclude Include="random_number.h" />
+    <ClInclude Include="recover_buff.h" />
+    <ClInclude Include="resources_manager.h" />
+    <ClInclude Include="retention.h" />
+    <ClInclude Include="retention_manager.h" />
+    <ClInclude Include="scene.h" />
+    <ClInclude Include="scene_manager.h" />
+    <ClInclude Include="select.h" />
+    <ClInclude Include="select_scene.h" />
+    <ClInclude Include="slime_enemy.h" />
+    <ClInclude Include="speed_up_buff.h" />
+    <ClInclude Include="status_bar_manager.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="tools.h" />
+    <ClInclude Include="UI.h" />
+    <ClInclude Include="ui_manager.h" />
+    <ClInclude Include="vector2.h" />
+    <ClInclude Include="wind_spell_magic.h" />
+    <ClInclude Include="zeus_fury_magic.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
