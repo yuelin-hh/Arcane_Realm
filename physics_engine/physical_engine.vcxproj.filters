@@ -25,6 +25,9 @@
     <Filter Include="头文件\object">
       <UniqueIdentifier>{b3d82395-4e05-40d9-ad8e-8657a81e17fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\map">
+      <UniqueIdentifier>{17d684a1-1113-4f08-afc6-46de824a7f2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="源.cpp">
@@ -69,6 +72,15 @@
     <ClCompile Include="player.cpp">
       <Filter>头文件\object</Filter>
     </ClCompile>
+    <ClCompile Include="map.cpp">
+      <Filter>头文件\map</Filter>
+    </ClCompile>
+    <ClCompile Include="wall_box.cpp">
+      <Filter>头文件\physical</Filter>
+    </ClCompile>
+    <ClCompile Include="map_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_manager.h">
@@ -109,6 +121,18 @@
     </ClInclude>
     <ClInclude Include="player.h">
       <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="map.h">
+      <Filter>头文件\map</Filter>
+    </ClInclude>
+    <ClInclude Include="tile.h">
+      <Filter>头文件\map</Filter>
+    </ClInclude>
+    <ClInclude Include="wall_box.h">
+      <Filter>头文件\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="map_manager.h">
+      <Filter>头文件\manager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

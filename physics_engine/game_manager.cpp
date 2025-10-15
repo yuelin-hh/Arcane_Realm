@@ -1,6 +1,7 @@
 #include "game_manager.h"
 #include "object_manager.h"
 #include "physics_engine_manager.h"
+#include "map_manager.h"
 
 GameManager::GameManager()
 {
@@ -66,6 +67,7 @@ void GameManager::on_input()
 
 void GameManager::on_update(double delta)
 {
+	MapManager::instance()->on_update(delta);
 	ObjectManager::instance()->on_update(delta);
 	PhysicsEngineManager::instance()->on_update(delta);
 }

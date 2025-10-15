@@ -78,14 +78,11 @@ private:
 		{
 			Vector2 direction(is_move_right - is_move_left, is_move_down - is_move_up);
 			double speed = physics_box->get_velocity().get_speed_in_direction(direction);
-			//std::cout << speed << std::endl;
 
 			Vector2 direction_v(direction.y, -direction.x);
 			double speed_v = physics_box->get_velocity().get_speed_in_direction(direction_v);
 
 			double f = (physics_box->get_friction() <= 70 ? 70 : physics_box->get_friction());
-
-			std::cout << P / f << std::endl;
 
 			if (speed < (P / f)* 6 / 7)
 			{

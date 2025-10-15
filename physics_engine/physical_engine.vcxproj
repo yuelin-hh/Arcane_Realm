@@ -132,6 +132,8 @@
     <ClCompile Include="force.cpp" />
     <ClCompile Include="game_manager.cpp" />
     <ClCompile Include="impulse.cpp" />
+    <ClCompile Include="map.cpp" />
+    <ClCompile Include="map_manager.cpp" />
     <ClCompile Include="object.cpp" />
     <ClCompile Include="object_manager.cpp" />
     <ClCompile Include="physics_collide_box.cpp" />
@@ -141,6 +143,7 @@
     <ClCompile Include="timer.cpp" />
     <ClCompile Include="vector2.cpp" />
     <ClCompile Include="velocity.cpp" />
+    <ClCompile Include="wall_box.cpp" />
     <ClCompile Include="源.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -149,14 +152,18 @@
     <ClInclude Include="game_manager.h" />
     <ClInclude Include="impulse.h" />
     <ClInclude Include="manager.h" />
+    <ClInclude Include="map.h" />
+    <ClInclude Include="map_manager.h" />
     <ClInclude Include="object.h" />
     <ClInclude Include="object_manager.h" />
     <ClInclude Include="physics_collide_box.h" />
     <ClInclude Include="physics_engine_manager.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="tile.h" />
     <ClInclude Include="timer.h" />
     <ClInclude Include="vector2.h" />
     <ClInclude Include="velocity.h" />
+    <ClInclude Include="wall_box.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
