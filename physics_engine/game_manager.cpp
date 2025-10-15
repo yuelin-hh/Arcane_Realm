@@ -5,7 +5,7 @@
 GameManager::GameManager()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
-	SDL_SetHint(SDL_HINT_IME_SHOW_UI, "0");
+	SDL_SetHint(SDL_HINT_IME_SHOW_UI, "1");
 
 	window = SDL_CreateWindow("physical_engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		1280, 720, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
@@ -59,7 +59,7 @@ void GameManager::on_input()
 		is_quit = true;
 		break;
 	default:
-		
+		ObjectManager::instance()->on_input(event);
 		break;
 	}
 }

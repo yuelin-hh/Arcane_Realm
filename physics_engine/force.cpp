@@ -11,8 +11,8 @@ Force::Force(double x,double y):x(x),y(y)
 
 Force::Force(Vector2 direction, double mgt)
 {
-	x = direction.x * mgt;
-	y = direction.y * mgt;
+	x = direction.normalize().x * mgt;
+	y = direction.normalize().y * mgt;
 }
 
 Force::~Force()

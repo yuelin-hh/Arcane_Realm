@@ -15,13 +15,10 @@ public:
 	{
 		if (flag)
 		{
-			physics_box_list[0]->add_impulse(Impulse(Velocity(7, 0), 50));
 			physics_box_list[0]->set_u(0.2);
-			physics_box_list[1]->set_u(0.2);
+			physics_box_list[1]->set_u(0.4);
 			flag = false;
 		}
-
-		physics_box_list[0]->add_force(Force(100, 0));
 
 		for (auto box : physics_box_list)
 		{

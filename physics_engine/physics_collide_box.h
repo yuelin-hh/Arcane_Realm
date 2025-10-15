@@ -4,10 +4,14 @@
 #include "velocity.h"
 #include "impulse.h"
 #include "vector2.h"
+//#include "manager.h"
+//#include "physics_engine_manager.h"
 
 #include <SDL.h>
 #include <SDL2_gfxPrimitives.h>
 #include <iostream>
+
+//class PhysicsEngineManager;
 
 enum class Shape
 {
@@ -21,6 +25,9 @@ public:
 	PhysicsBox(Vector2 size, double m, Vector2& position, int code);
 	PhysicsBox(double radius, double m, Vector2& position, int code);
 	~PhysicsBox();
+
+public:
+	//friend class PhysicsEngineManager;
 
 	void on_update(double delta)
 	{
@@ -79,6 +86,11 @@ public:
 	Velocity get_velocity()
 	{
 		return v;
+	}
+
+	double get_friction()
+	{
+		return m * 10 * u;
 	}
 
 private:

@@ -11,8 +11,8 @@ Velocity::Velocity(double x, double y) :x(x), y(y)
 
 Velocity::Velocity(Vector2 direction, double mgt)
 {
-	x = direction.x * mgt;
-	y = direction.y * mgt;
+	x = direction.normalize().x * mgt;
+	y = direction.normalize().y * mgt;
 }
 
 Velocity::~Velocity()
@@ -56,7 +56,6 @@ double Velocity::mgt()
 
 double Velocity::get_speed_in_direction(Vector2& direction)
 {
-	double radian = std::atan2(direction.x, direction.y);
-
-	return y / cos(radian) + x / sin(radian);
+	double radian = std::atan2(direction.y, direction.x);
+	return x * cos(radian) + y * sin(radian);
 }

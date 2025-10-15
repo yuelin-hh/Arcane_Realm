@@ -7,7 +7,7 @@ public:
 	Player();
 	~Player();
 
-	void on_input(SDL_Event& event)
+	void on_input(SDL_Event& event) override
 	{
 		switch (event.type)
 		{
@@ -56,43 +56,15 @@ public:
 
 	void on_update(double delta)
 	{
-		t += delta * 100;
-		if (is_move_right - is_move_left != 0 || is_move_down - is_move_up != 0)
-		{
-			//Vector2 direction(is_move_right - is_move_left, is_move_down - is_move_up);
-			Vector2 direction(1, 0);
-
-			double speed = physics_box->get_velocity().get_speed_in_direction(direction);
-			speed1 = speed * 100;
-			if (speed < 6)
-			{
-				physics_box->add_impulse(Impulse(Velocity(direction, 1), m));
-				
-				//physics_box->add_force(Force(direction, Fm));
-			}
-			else
-			{
-				flag = false;
-				physics_box->add_force(Force(direction, P / speed));
-			}
-
-			
-		}
-		
+		move();
 	}
 
 	void on_render(SDL_Renderer* renderer)
 	{
-		/*SDL_SetRenderDrawColor(renderer, 255, 100, 100, 255);
-		SDL_RenderDrawLine(renderer, 0, 20, 1280, 20);
-		if(flag)
-			SDL_SetRenderDrawColor(renderer, 255, 100, 100, 255);
-		else
-			SDL_SetRenderDrawColor(renderer, 100, 100, 255, 255);
-		SDL_RenderDrawPoint(renderer, t, 720 - speed1);*/
+		
 	}
 private:
-	bool is_move_right = true;
+	bool is_move_right = false;
 	bool is_move_left = false;
 	bool is_move_up = false;
 	bool is_move_down = false;
@@ -100,8 +72,72 @@ private:
 	double P = 700;
 	double Fm =	1100;
 
-	double speed1 = 0;
-	double t = 0;
+	void move()
+	{
+		if (is_move_right - is_move_left != 0 || is_move_down - is_move_up != 0)
+		{
+			Vector2 direction(is_move_right - is_move_left, is_move_down - is_move_up);
+			double speed = physics_box->get_velocity().get_speed_in_direction(direction);
+			//std::cout << speed << std::endl;
 
-	bool flag = true;
+			Vector2 direction_v(direction.y, -direction.x);
+			double speed_v = physics_box->get_velocity().get_speed_in_direction(direction_v);
+
+			double f = (physics_box->get_friction() <= 70 ? 70 : physics_box->get_friction());
+
+			std::cout << P / f << std::endl;
+
+			if (speed < (P / f)* 6 / 7)
+			{
+				physics_box->add_impulse(Impulse(Velocity(direction, 1), m));
+				physics_box->add_force(Force(direction, physics_box->get_friction()));
+			}
+			else
+			{
+				physics_box->add_force(Force(direction, P / speed));
+			}
+
+			if (speed_v > 1)
+			{
+				direction_v.x = -direction_v.x;
+				direction_v.y = -direction_v.y;
+
+				physics_box->add_impulse(Impulse(Velocity(direction_v, 1), m));
+			}
+			else if (speed_v > 0 && speed_v <= 1)
+			{
+				direction_v.x = -direction_v.x;
+				direction_v.y = -direction_v.y;
+
+				physics_box->add_impulse(Impulse(Velocity(direction_v, speed_v), m));
+			}
+			else if (speed_v < -1)
+			{
+				physics_box->add_impulse(Impulse(Velocity(direction_v, 1), m));
+			}
+			else if (speed_v < 0 && speed_v >= -1)
+			{
+				physics_box->add_impulse(Impulse(Velocity(direction_v, -speed_v), m));
+			}
+		}
+		else
+		{
+			double v1 = (physics_box->get_friction() <= 10 ? 10 : physics_box->get_friction()) / 100;
+
+			if (physics_box->get_velocity().mgt() >= v1)
+			{
+				Vector2 direction = physics_box->get_velocity().direction();
+				direction.x = -direction.x;
+				direction.y = -direction.y;
+				physics_box->add_impulse(Impulse(Velocity(direction, v1), m));
+			}
+			else
+			{
+				Vector2 direction = physics_box->get_velocity().direction();
+				direction.x = -direction.x;
+				direction.y = -direction.y;
+				physics_box->add_impulse(Impulse(Velocity(direction, physics_box->get_velocity().mgt()), m));
+			}
+		}
+	}
 };
