@@ -132,6 +132,7 @@
     <ClCompile Include="force.cpp" />
     <ClCompile Include="game_manager.cpp" />
     <ClCompile Include="impulse.cpp" />
+    <ClCompile Include="input_method_manager.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="map_manager.cpp" />
     <ClCompile Include="object.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="force.h" />
     <ClInclude Include="game_manager.h" />
     <ClInclude Include="impulse.h" />
+    <ClInclude Include="input_method_manager.h" />
     <ClInclude Include="manager.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="map_manager.h" />

@@ -52,8 +52,6 @@ public:
 
 		tile_map = tile_map_temp;
 		build_wall();
-		//fill_wall(0, 39, 23, 1);
-		print();
 
 		return true;
 	}
@@ -200,17 +198,11 @@ private:
 	void fill_wall(int i, int j, int height, int width)
 	{
 		Vector2 pos(j * 32, i * 32 - 16);
-		if (i == 22)
-			pos.y + 16;
 
 		Vector2 size(width * 32, height * 32);
 
-		//std::cout << pos.x << " " << pos.y << std::endl;
-		//std::cout << size.x << " " << size.y << std::endl << std::endl;
-
 		std::shared_ptr<WallBox> box = PhysicsEngineManager::instance()->create_wall_box(pos, size);
 
-		//std::cout << j << " " << i << std::endl;
 		for (int idx_y = i; idx_y < i + height; idx_y++)
 		{
 			for (int idx_x = j; idx_x < j + width; idx_x++)
@@ -220,15 +212,4 @@ private:
 		}
 	}
 
-	void print()
-	{
-		for (int i = 0; i < get_height(); i++)
-		{
-			for (int j = 0; j < get_width(); j++)
-			{
-				std::cout << (tile_map[i][j].wall_box == nullptr) << "  ";
-			}
-			std::cout << std::endl;
-		}
-	}
 };

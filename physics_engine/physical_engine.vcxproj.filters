@@ -81,6 +81,9 @@
     <ClCompile Include="map_manager.cpp">
       <Filter>头文件\manager</Filter>
     </ClCompile>
+    <ClCompile Include="input_method_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_manager.h">
@@ -132,6 +135,9 @@
       <Filter>头文件\physical</Filter>
     </ClInclude>
     <ClInclude Include="map_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="input_method_manager.h">
       <Filter>头文件\manager</Filter>
     </ClInclude>
   </ItemGroup>

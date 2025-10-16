@@ -1,6 +1,7 @@
 #include "game_manager.h"
 #include "object_manager.h"
 #include "physics_engine_manager.h"
+#include "input_method_manager.h"
 #include "map_manager.h"
 
 GameManager::GameManager()
@@ -10,6 +11,8 @@ GameManager::GameManager()
 
 	window = SDL_CreateWindow("physical_engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		1280, 720, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+
+	InputMethodManager::instance()->SetEnglishInput(window);
 
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_TARGETTEXTURE);
 	SDL_RenderSetLogicalSize(renderer, 1280, 720);
@@ -49,6 +52,7 @@ int GameManager::run(int argc, char** argv)
 		SDL_RenderPresent(renderer);
 	}
 
+	InputMethodManager::instance()->RestoreInputMethod();
 	return 0;
 }
 

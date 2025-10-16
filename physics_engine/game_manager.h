@@ -1,5 +1,4 @@
 #pragma once
-
 #include "manager.h"
 
 class GameManager: public Manager<GameManager>
@@ -23,5 +22,4 @@ private:
 	void on_update(double delta);
 
 	void on_render();
-
 };

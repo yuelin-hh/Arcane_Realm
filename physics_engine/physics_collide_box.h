@@ -93,6 +93,26 @@ public:
 		return m * 10 * u;
 	}
 
+	void set_can_bounce()
+	{
+		can_bounce = true;
+	}
+
+	bool is_can_bance()
+	{ 
+		return can_bounce;
+	}
+
+	Vector2 get_position()
+	{
+		return position;
+	}
+
+	Vector2 get_size()
+	{
+		return size;
+	}
+
 private:
 	void recode_force()
 	{
@@ -164,6 +184,8 @@ private:
 	double radius = 0;
 	int code = 0;
 	Shape shape;
+
+	bool can_bounce = false;
 
 	double u = 0;
 	double m = 0;
