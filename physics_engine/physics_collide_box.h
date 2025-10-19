@@ -35,8 +35,6 @@ public:
 		recode_accelerated_speed(delta);
 		recode_inpulse();
 		recode_friction(delta);
-
-		move(delta);
 	}
 
 	void on_render(SDL_Renderer* renderer);
@@ -113,6 +111,11 @@ public:
 		return size;
 	}
 
+	void move(Vector2 x)
+	{
+		position += x;
+	}
+
 private:
 	void recode_force()
 	{
@@ -171,12 +174,6 @@ private:
 
 		a.clear();
 	}
-
-	void move(double t)
-	{
-		position += v * t;
-	}
-
 
 private:
 	Vector2& position;

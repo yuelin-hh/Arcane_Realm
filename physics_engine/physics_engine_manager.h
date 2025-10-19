@@ -2,6 +2,7 @@
 #include "manager.h"
 #include "physics_collide_box.h"
 #include "wall_box.h"
+#include "tile.h"
 
 class PhysicsEngineManager:public Manager<PhysicsEngineManager>
 {
@@ -18,8 +19,9 @@ public:
 	{
 		if (flag)
 		{
-			physics_box_list[0]->set_u(0.2);
-			physics_box_list[1]->set_u(0.01);
+			physics_box_list[0]->set_u(0);
+			physics_box_list[0]->add_impulse(Impulse(Velocity(10,4),50));
+			physics_box_list[0]->set_can_bounce();
 			flag = false;
 		}
 
@@ -27,20 +29,61 @@ public:
 		{
 			box->on_update(delta);
 		}
+
+		check_collide_with_wall(delta);
 	}
 	
 	void on_render(SDL_Renderer* renderer);
 
+	void check_collide_with_wall(double t);
+
+	void set_map(TileMap& tile_map)
+	{
+		this->tile_map = tile_map;
+	}
+
+	int i_dst = 0, j_dst = 0;
 protected:
 	PhysicsEngineManager();
 	~PhysicsEngineManager();
 
 private:
+	
+
 	int code = 0;
 
 	bool flag = true;
 
+	TileMap tile_map;
 	PhysicsBoxList physics_box_list;
 	WallBoxList wall_list;
+
+	int get_symbol(double a)
+	{
+		if (a == 0)
+		{
+			return 0;
+		}
+		else if (a < 0)
+		{
+			return -1;
+		}
+		else
+		{
+			return 1;
+		}
+	}
+
+	void print()
+	{
+		for (const auto& a : tile_map)
+		{
+			for (const auto& b : a)
+			{
+				std::cout << b.wall << " ";
+			}
+			std::cout << "\n";
+		}
+	}
 };
 

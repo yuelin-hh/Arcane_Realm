@@ -69,6 +69,11 @@ public:
 		return tile_map.size();
 	}
 
+	TileMap& get_tile_map()
+	{
+		return tile_map;
+	}
+
 private:
 	TileMap tile_map;
 
@@ -197,7 +202,7 @@ private:
 
 	void fill_wall(int i, int j, int height, int width)
 	{
-		Vector2 pos(j * 32, i * 32 - 16);
+		Vector2 pos(j * 32, i * 32);
 
 		Vector2 size(width * 32, height * 32);
 
