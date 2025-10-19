@@ -20,6 +20,7 @@ public:
 		if (flag)
 		{
 			physics_box_list[0]->set_u(0);
+			physics_box_list[1]->set_u(0.2);
 			physics_box_list[0]->add_impulse(Impulse(Velocity(10,4),50));
 			physics_box_list[0]->set_can_bounce();
 			flag = false;
@@ -42,7 +43,6 @@ public:
 		this->tile_map = tile_map;
 	}
 
-	int i_dst = 0, j_dst = 0;
 protected:
 	PhysicsEngineManager();
 	~PhysicsEngineManager();

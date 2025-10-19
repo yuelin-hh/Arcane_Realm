@@ -23,6 +23,10 @@ public:
 			object->set_position(100, 440);
 			object_list.push_back(object);
 
+			object = std::make_shared<Player>();
+			object->set_position(100, 440);
+			object_list.push_back(object);
+
 			flag = false;
 		}
 		for (auto object : object_list)
