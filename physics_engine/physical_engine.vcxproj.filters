@@ -84,6 +84,9 @@
     <ClCompile Include="input_method_manager.cpp">
       <Filter>头文件\manager</Filter>
     </ClCompile>
+    <ClCompile Include="calculator.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_manager.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="input_method_manager.h">
       <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="calculator.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

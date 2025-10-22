@@ -20,11 +20,23 @@ public:
 		if (flag)
 		{
 			auto object = std::make_shared<Object>();
-			object->set_position(100, 440);
+			object->set_position(100, 400);
 			object_list.push_back(object);
 
-			object = std::make_shared<Player>();
-			object->set_position(100, 440);
+			object = std::make_shared<Object>();
+			object->set_position(1100, 400);
+			object_list.push_back(object);
+
+			object = std::make_shared<Object>();
+			object->set_position(800, 440);
+			object_list.push_back(object);
+
+			object = std::make_shared<Object>();
+			object->set_position(600, 440);
+			object_list.push_back(object);
+
+			object = std::make_shared<Object>();
+			object->set_position(600, 640);
 			object_list.push_back(object);
 
 			flag = false;

@@ -3,13 +3,21 @@
 #include "physics_collide_box.h"
 #include "wall_box.h"
 #include "tile.h"
+#include <array>
+
+struct BoxAndTime
+{
+	std::shared_ptr<PhysicsBox> box = nullptr;
+	double t = 0;
+};
 
 class PhysicsEngineManager:public Manager<PhysicsEngineManager>
 {
 	friend class Manager<PhysicsEngineManager>;
 public:
-	using PhysicsBoxList = std::vector<std::shared_ptr<PhysicsBox>>;
+	using PhysicsBoxList = std::vector<std::shared_ptr<BoxAndTime>>;
 	using WallBoxList = std::vector<std::shared_ptr<WallBox>>;
+	using ResultList = std::vector < std::array<std::shared_ptr<BoxAndTime>,2>>;
 
 	std::shared_ptr<PhysicsBox> create_physics_box(Vector2 size, double m, Vector2& position);
 	std::shared_ptr<PhysicsBox> create_physics_box(double radius, double m, Vector2& position);
@@ -19,24 +27,36 @@ public:
 	{
 		if (flag)
 		{
-			physics_box_list[0]->set_u(0);
-			physics_box_list[1]->set_u(0.2);
-			physics_box_list[0]->add_impulse(Impulse(Velocity(10,4),50));
-			physics_box_list[0]->set_can_bounce();
+			for (auto box : physics_box_list)
+			{
+				box->box->set_u(0);
+				box->box->set_can_bounce();
+			}
+			physics_box_list[0]->box->add_impulse(Impulse(Velocity(10,0),50));
+			physics_box_list[1]->box->add_impulse(Impulse(Velocity(-13,0),50));
+			physics_box_list[2]->box->add_impulse(Impulse(Velocity(-5,9),50));
+			physics_box_list[3]->box->add_impulse(Impulse(Velocity(-5,9),50));
+			physics_box_list[4]->box->add_impulse(Impulse(Velocity(-9,9),50));
 			flag = false;
 		}
 
 		for (auto box : physics_box_list)
 		{
-			box->on_update(delta);
+			box->box->on_update(delta);
 		}
 
-		check_collide_with_wall(delta);
+		check_collide_possible(delta);
+		check_collide(delta);
+
+		for (auto box : physics_box_list)
+		{
+			check_collide_with_wall(box, box->t);
+		}
 	}
 	
 	void on_render(SDL_Renderer* renderer);
 
-	void check_collide_with_wall(double t);
+	
 
 	void set_map(TileMap& tile_map)
 	{
@@ -57,6 +77,17 @@ private:
 	TileMap tile_map;
 	PhysicsBoxList physics_box_list;
 	WallBoxList wall_list;
+	ResultList result_list;
+
+	void check_collide_with_wall(std::shared_ptr<BoxAndTime> box, double t);
+
+	void check_collide_possible(double t);
+
+	void check_collide(double t);
+
+	void make_collision(std::shared_ptr<BoxAndTime> box1, std::shared_ptr<BoxAndTime> box2, double t);
+
+	void add_impulse(std::shared_ptr<PhysicsBox> box1, std::shared_ptr<PhysicsBox> box2, bool is_left_and_right);
 
 	int get_symbol(double a)
 	{
