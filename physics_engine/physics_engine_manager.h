@@ -27,16 +27,23 @@ public:
 	{
 		if (flag)
 		{
-			for (auto box : physics_box_list)
+			physics_box_list[0]->box->set_u(0.2);
+			physics_box_list[0]->box->set_cannot_bounce();
+			physics_box_list[1]->box->set_u(0.2);
+			physics_box_list[1]->box->set_cannot_bounce();
+			/*for (auto box : physics_box_list)
 			{
 				box->box->set_u(0);
 				box->box->set_can_bounce();
 			}
+			physics_box_list[5]->box->set_u(0.2);
+			physics_box_list[5]->box->set_cannot_bounce();
+
 			physics_box_list[0]->box->add_impulse(Impulse(Velocity(10,0),50));
 			physics_box_list[1]->box->add_impulse(Impulse(Velocity(-13,0),50));
 			physics_box_list[2]->box->add_impulse(Impulse(Velocity(-5,9),50));
 			physics_box_list[3]->box->add_impulse(Impulse(Velocity(-5,9),50));
-			physics_box_list[4]->box->add_impulse(Impulse(Velocity(-9,9),50));
+			physics_box_list[4]->box->add_impulse(Impulse(Velocity(-9,9),50));*/
 			flag = false;
 		}
 

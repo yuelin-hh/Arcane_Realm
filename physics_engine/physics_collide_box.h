@@ -97,6 +97,11 @@ public:
 		can_bounce = true;
 	}
 
+	void set_cannot_bounce()
+	{
+		can_bounce = false;
+	}
+
 	bool is_can_bounce()
 	{ 
 		return can_bounce;

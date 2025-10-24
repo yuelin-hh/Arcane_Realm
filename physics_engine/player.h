@@ -26,6 +26,9 @@ public:
 			case SDLK_s:
 				is_move_down = true;
 				break;
+			case SDLK_LSHIFT:
+				P = &Pr;
+				break;
 			default:
 				break;
 			}
@@ -45,6 +48,9 @@ public:
 			case SDLK_s:
 				is_move_down = false;
 				break;
+			case SDLK_LSHIFT:
+				P = &Pn;
+				break;
 			default:
 				break;
 			}
@@ -63,13 +69,17 @@ public:
 	{
 		
 	}
+
 private:
 	bool is_move_right = false;
 	bool is_move_left = false;
 	bool is_move_up = false;
 	bool is_move_down = false;
 
-	double P = 700;
+	
+	double Pn = 400;
+	double Pr = 800;
+	double* P = &Pn;
 	double Fm =	1100;
 
 	void move()
@@ -84,14 +94,14 @@ private:
 
 			double f = (physics_box->get_friction() <= 70 ? 70 : physics_box->get_friction());
 
-			if (speed < (P / f)* 6 / 7)
+			if (speed < (*P / f)* 6 / 7)
 			{
 				physics_box->add_impulse(Impulse(Velocity(direction, 1), m));
 				physics_box->add_force(Force(direction, physics_box->get_friction()));
 			}
 			else
 			{
-				physics_box->add_force(Force(direction, P / speed));
+				physics_box->add_force(Force(direction, *P / speed));
 			}
 
 			if (speed_v > 1)
