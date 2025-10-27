@@ -51,6 +51,7 @@ public:
 
 	void add_impulse(Impulse I1)
 	{
+		//std::cout << I1.x << "  " << I1.y << std::endl;
 		I += I1;
 	}
 
@@ -96,7 +97,12 @@ public:
 		can_bounce = true;
 	}
 
-	bool is_can_bance()
+	void set_cannot_bounce()
+	{
+		can_bounce = false;
+	}
+
+	bool is_can_bounce()
 	{ 
 		return can_bounce;
 	}

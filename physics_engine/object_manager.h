@@ -19,13 +19,29 @@ public:
 	{
 		if (flag)
 		{
-			auto object = std::make_shared<Object>();
-			object->set_position(100, 440);
+			auto object = std::make_shared<Player>();
+			object->set_position(100, 400);
+			object_list.push_back(object);
+
+			auto object1 = std::make_shared<Object>();
+			object1->set_position(1100, 400);
+			object_list.push_back(object1);
+
+			/*object = std::make_shared<Object>();
+			object->set_position(800, 440);
+			object_list.push_back(object);
+
+			object = std::make_shared<Object>();
+			object->set_position(600, 440);
+			object_list.push_back(object);
+
+			object = std::make_shared<Object>();
+			object->set_position(600, 640);
 			object_list.push_back(object);
 
 			object = std::make_shared<Player>();
-			object->set_position(100, 440);
-			object_list.push_back(object);
+			object->set_position(400, 640);
+			object_list.push_back(object);*/
 
 			flag = false;
 		}

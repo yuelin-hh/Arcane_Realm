@@ -129,6 +129,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="accelerated_speed.cpp" />
+    <ClCompile Include="calculator.cpp" />
+    <ClCompile Include="entity.cpp" />
     <ClCompile Include="force.cpp" />
     <ClCompile Include="game_manager.cpp" />
     <ClCompile Include="impulse.cpp" />
@@ -149,6 +151,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="accelerated_speed.h" />
+    <ClInclude Include="calculator.h" />
+    <ClInclude Include="entity.h" />
     <ClInclude Include="force.h" />
     <ClInclude Include="game_manager.h" />
     <ClInclude Include="impulse.h" />
