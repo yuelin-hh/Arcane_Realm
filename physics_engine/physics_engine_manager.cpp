@@ -337,6 +337,7 @@ void PhysicsEngineManager::make_collision(std::shared_ptr<BoxAndTime> box1, std:
 {
 	double time_x = -1, time_y = -1;
 	double distance_y= box1->box->get_position().y - box2->box->get_position().y;
+
 	if (!(box1->box->get_velocity().x - box2->box->get_velocity().x <= 0.001 && box1->box->get_velocity().x - box2->box->get_velocity().x >= -0.001))
 		time_x = (-box1->box->get_position().x + box2->box->get_position().x + box1->box->get_size().x / 2 + box2->box->get_size().x / 2) / (box1->box->get_velocity().x - box2->box->get_velocity().x) / 32;
 	

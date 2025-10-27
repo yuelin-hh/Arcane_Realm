@@ -87,6 +87,9 @@
     <ClCompile Include="calculator.cpp">
       <Filter>头文件</Filter>
     </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>头文件\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_manager.h">
@@ -145,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="calculator.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>头文件\object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
