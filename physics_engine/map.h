@@ -15,8 +15,18 @@ public:
 
 	bool load(const std::string& path)
 	{
-		std::ifstream file(path);
-		if (!file.good())return false;
+		std::ifstream file(path, std::ios::binary);  // 用二进制模式打开
+		if (!file.good()) return false;
+
+		// 检查并跳过BOM
+		char bom[3];
+		file.read(bom, 3);
+		if (static_cast<unsigned char>(bom[0]) != 0xEF ||
+			static_cast<unsigned char>(bom[1]) != 0xBB ||
+			static_cast<unsigned char>(bom[2]) != 0xBF) {
+			// 如果不是BOM，回退文件指针
+			file.seekg(0);
+		}
 
 		TileMap tile_map_temp;
 
@@ -35,7 +45,7 @@ public:
 
 			std::string str_tile;
 			std::stringstream str_stream(str_line);
-			while (std::getline(str_stream,str_tile,'\t'))
+			while (std::getline(str_stream,str_tile,','))
 			{
 				idx_x++;
 				tile_map_temp[idx_y].emplace_back();
@@ -53,6 +63,7 @@ public:
 		tile_map = tile_map_temp;
 		build_wall();
 
+		//std::cout << tile_map[0][0].wall;
 		return true;
 	}
 
@@ -93,15 +104,15 @@ private:
 		std::string str_tidy = trim_str(str);
 
 		std::string str_value;
-		std::vector<int> values;
+		std::vector<double> values;
 		std::stringstream str_stream(str_tidy);
 
-		while (std::getline(str_stream, str_value, '\\'))
+		while (std::getline(str_stream, str_value, '/'))
 		{
-			int value;
+			double value;
 			try
 			{
-				value = std::stoi(str_value);
+				value = std::stof(str_value);
 			}
 			catch (const std::invalid_argument&)
 			{
@@ -111,6 +122,7 @@ private:
 		}
 
 		tile.wall = (values.size() < 1 || (values[0] != 0 && values[0] != 1)) ? 0 : values[0];
+		tile.u = (values.size() < 2 || (values[1] == -1)) ? 0.2 : values[1];
 	}
 
 	void build_wall()
@@ -216,5 +228,4 @@ private:
 			}
 		}
 	}
-
 };

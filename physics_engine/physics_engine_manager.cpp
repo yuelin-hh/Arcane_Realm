@@ -36,18 +36,6 @@ std::shared_ptr<WallBox> PhysicsEngineManager::create_wall_box(Vector2 pos, Vect
 
 void PhysicsEngineManager::on_render(SDL_Renderer* renderer)
 {
-	/*for (int i = 1; i <= 39; i++)
-	{
-		SDL_SetRenderDrawColor(renderer, 100, 255, 100, 100);
-		SDL_RenderDrawLine(renderer, i * 32, 0, i * 32, 720);
-	}
-
-	for (int i = 1; i <= 22; i++)
-	{
-		SDL_SetRenderDrawColor(renderer, 100, 255, 100, 100);
-		SDL_RenderDrawLine(renderer, 0, i * 32, 1280, i * 32);
-	}*/
-
 	for (auto box : physics_box_list)
 	{
 		box->box->on_render(renderer);

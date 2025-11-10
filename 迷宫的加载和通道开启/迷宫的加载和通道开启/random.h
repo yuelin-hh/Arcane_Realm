@@ -7,6 +7,7 @@ public:
 	Random(){}
 	~Random(){}
 
+	//¾²Ì¬ÉêÃ÷
 	static bool check(double p)
 	{
 		static std::random_device rd;

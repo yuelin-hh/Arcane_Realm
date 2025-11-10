@@ -40,7 +40,7 @@ public:
 				switch (one)
 				{
 				case Element::Null:
-					os << " ";
+					os << "1";
 					break;
 				case Element::Start:
 					os << "#";

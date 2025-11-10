@@ -63,6 +63,16 @@ void GameManager::on_input()
 	case SDL_QUIT:
 		is_quit = true;
 		break;
+	case SDL_KEYDOWN:
+		switch (event.key.keysym.sym)
+		{
+		case SDLK_q:
+			flag = !flag;
+			break;
+		default:
+			break;
+		}
+		break;
 	default:
 		ObjectManager::instance()->on_input(event);
 		break;
@@ -78,6 +88,20 @@ void GameManager::on_update(double delta)
 
 void GameManager::on_render()
 {
+	if (flag)
+	{
+		for (int i = 1; i <= 39; i++)
+		{
+			SDL_SetRenderDrawColor(renderer, 100, 255, 100, 100);
+			SDL_RenderDrawLine(renderer, i * 32, 0, i * 32, 720);
+		}
+
+		for (int i = 1; i <= 22; i++)
+		{
+			SDL_SetRenderDrawColor(renderer, 100, 255, 100, 100);
+			SDL_RenderDrawLine(renderer, 0, i * 32, 1280, i * 32);
+		}
+	}
 	PhysicsEngineManager::instance()->on_render(renderer);
 	ObjectManager::instance()->on_render(renderer);
 }

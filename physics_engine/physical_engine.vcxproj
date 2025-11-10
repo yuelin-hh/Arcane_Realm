@@ -130,6 +130,8 @@
   <ItemGroup>
     <ClCompile Include="accelerated_speed.cpp" />
     <ClCompile Include="calculator.cpp" />
+    <ClCompile Include="cell.cpp" />
+    <ClCompile Include="cell_map.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="force.cpp" />
     <ClCompile Include="game_manager.cpp" />
@@ -142,16 +144,20 @@
     <ClCompile Include="physics_collide_box.cpp" />
     <ClCompile Include="physics_engine_manager.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="tree.cpp" />
     <ClCompile Include="thirdparty\cJSON\cJSON.c" />
     <ClCompile Include="timer.cpp" />
     <ClCompile Include="vector2.cpp" />
     <ClCompile Include="velocity.cpp" />
     <ClCompile Include="wall_box.cpp" />
+    <ClCompile Include="wayfinding.cpp" />
     <ClCompile Include="源.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="accelerated_speed.h" />
     <ClInclude Include="calculator.h" />
+    <ClInclude Include="cell.h" />
+    <ClInclude Include="cell_map.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="force.h" />
     <ClInclude Include="game_manager.h" />
@@ -165,11 +171,13 @@
     <ClInclude Include="physics_collide_box.h" />
     <ClInclude Include="physics_engine_manager.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="tree.h" />
     <ClInclude Include="tile.h" />
     <ClInclude Include="timer.h" />
     <ClInclude Include="vector2.h" />
     <ClInclude Include="velocity.h" />
     <ClInclude Include="wall_box.h" />
+    <ClInclude Include="wayfinding.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

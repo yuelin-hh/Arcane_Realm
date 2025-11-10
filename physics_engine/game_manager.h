@@ -16,6 +16,7 @@ private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 
+	bool flag = false;
 
 	void on_input();
 

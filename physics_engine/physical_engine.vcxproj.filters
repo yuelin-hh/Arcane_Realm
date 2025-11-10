@@ -28,6 +28,9 @@
     <Filter Include="头文件\map">
       <UniqueIdentifier>{17d684a1-1113-4f08-afc6-46de824a7f2a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\wayfinding">
+      <UniqueIdentifier>{d5ed7cce-97d7-44a9-9e4d-c519e99482cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="源.cpp">
@@ -90,6 +93,18 @@
     <ClCompile Include="entity.cpp">
       <Filter>头文件\object</Filter>
     </ClCompile>
+    <ClCompile Include="wayfinding.cpp">
+      <Filter>头文件\wayfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="cell.cpp">
+      <Filter>头文件\wayfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_map.cpp">
+      <Filter>头文件\wayfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="tree.cpp">
+      <Filter>头文件\wayfinding</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_manager.h">
@@ -151,6 +166,18 @@
     </ClInclude>
     <ClInclude Include="entity.h">
       <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="wayfinding.h">
+      <Filter>头文件\wayfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="cell.h">
+      <Filter>头文件\wayfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_map.h">
+      <Filter>头文件\wayfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="tree.h">
+      <Filter>头文件\wayfinding</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

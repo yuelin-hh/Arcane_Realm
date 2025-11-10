@@ -7,7 +7,7 @@ struct Tile
 {
 	std::shared_ptr<WallBox> wall_box = nullptr;
 	int wall = 0;
-	int size = 32;
+	double u = 0.2;
 };
 
 using TileMap = std::vector<std::vector<Tile>>;

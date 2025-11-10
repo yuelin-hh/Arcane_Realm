@@ -2,7 +2,7 @@
 
 MapManager::MapManager()
 {
-	map.load("map.csv");
+	map.load("map1.csv");
 	create_wall_map();
 	PhysicsEngineManager::instance()->set_map(map.get_tile_map());
 }
