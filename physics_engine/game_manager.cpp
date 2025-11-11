@@ -34,7 +34,7 @@ int GameManager::run(int argc, char** argv)
 
 	while (!is_quit)
 	{
-		while (SDL_PollEvent(&event))
+8;		while (SDL_PollEvent(&event))
 			on_input();
 		Uint64 current_counter = SDL_GetPerformanceCounter();
 		double delta = (double)(current_counter - last_counter) / counter_freq;
@@ -70,6 +70,7 @@ void GameManager::on_input()
 			flag = !flag;
 			break;
 		default:
+			ObjectManager::instance()->on_input(event);
 			break;
 		}
 		break;

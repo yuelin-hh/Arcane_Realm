@@ -151,6 +151,7 @@
     <ClCompile Include="velocity.cpp" />
     <ClCompile Include="wall_box.cpp" />
     <ClCompile Include="wayfinding.cpp" />
+    <ClCompile Include="way_finding_manager.cpp" />
     <ClCompile Include="源.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +179,7 @@
     <ClInclude Include="velocity.h" />
     <ClInclude Include="wall_box.h" />
     <ClInclude Include="wayfinding.h" />
+    <ClInclude Include="way_finding_manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

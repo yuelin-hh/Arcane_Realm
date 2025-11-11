@@ -9,6 +9,7 @@ public:
 
 	void on_input(SDL_Event& event) override
 	{
+		
 		switch (event.type)
 		{
 		case SDL_KEYDOWN:
@@ -62,12 +63,20 @@ public:
 
 	void on_update(double delta)
 	{
+		work_out_tile_pos();
 		move();
+		find_way(30, 10);
 	}
 
 	void on_render(SDL_Renderer* renderer)
 	{
-		
+		if (ways.empty()) return;
+		SDL_SetRenderDrawColor(renderer, 255, 100, 100, 255);
+		for (int i = 0; i < ways.size() - 1; i++)
+		{
+			SDL_RenderDrawLine(renderer, ways[i][0] * 32 + 16, ways[i][1] * 32 + 16,
+				ways[i + 1][0] * 32 + 16, ways[i + 1][1] * 32 + 16);
+		}
 	}
 
 private:
@@ -76,7 +85,6 @@ private:
 	bool is_move_up = false;
 	bool is_move_down = false;
 
-	
 	double Pn = 400;
 	double Pr = 800;
 	double* P = &Pn;

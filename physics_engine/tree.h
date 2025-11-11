@@ -78,8 +78,10 @@ public:
 
 		std::shared_ptr<Node> current = root_;
 
-		while (current->lchild)
+		while (current->lchild->lchild)
 			current = current->lchild;
+
+		
 
 		if (current->lchild->rchild)
 		{

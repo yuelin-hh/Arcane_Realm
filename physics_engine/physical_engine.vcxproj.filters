@@ -105,6 +105,9 @@
     <ClCompile Include="tree.cpp">
       <Filter>头文件\wayfinding</Filter>
     </ClCompile>
+    <ClCompile Include="way_finding_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_manager.h">
@@ -143,9 +146,6 @@
     <ClInclude Include="object_manager.h">
       <Filter>头文件\manager</Filter>
     </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>头文件\object</Filter>
-    </ClInclude>
     <ClInclude Include="map.h">
       <Filter>头文件\map</Filter>
     </ClInclude>
@@ -178,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="tree.h">
       <Filter>头文件\wayfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="way_finding_manager.h">
+      <Filter>头文件\manager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

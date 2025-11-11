@@ -17,34 +17,13 @@ public:
 
 	void on_update(double delta)
 	{
-		//if (flag)
-		//{
-		//	auto object = std::make_shared<Player>();
-		//	object->set_position(100, 400);
-		//	object_list.push_back(object);
+		if (flag)
+		{
+			object_list.push_back(std::make_shared<Player>());
+			object_list[0]->set_position(100, 200);
+			flag = false;
+		}
 
-		//	auto object1 = std::make_shared<Object>();
-		//	object1->set_position(1100, 400);
-		//	object_list.push_back(object1);
-
-		//	/*object = std::make_shared<Object>();
-		//	object->set_position(800, 440);
-		//	object_list.push_back(object);
-
-		//	object = std::make_shared<Object>();
-		//	object->set_position(600, 440);
-		//	object_list.push_back(object);
-
-		//	object = std::make_shared<Object>();
-		//	object->set_position(600, 640);
-		//	object_list.push_back(object);
-
-		//	object = std::make_shared<Player>();
-		//	object->set_position(400, 640);
-		//	object_list.push_back(object);*/
-
-		//	flag = false;
-		//}
 		for (auto object : object_list)
 		{
 			object->on_update(delta);
@@ -53,6 +32,10 @@ public:
 
 	void on_render(SDL_Renderer* renderer)
 	{
+		for (auto object : object_list)
+		{
+			object->on_render(renderer);
+		}
 	}
 protected:
 	ObjectManager();

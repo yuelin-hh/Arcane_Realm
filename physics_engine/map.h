@@ -85,6 +85,13 @@ public:
 		return tile_map;
 	}
 
+	const Tile& call(int x, int y)
+	{
+		return tile_map[y][x];
+	}
+
+	int size_x(){ return tile_map[0].size(); }
+	int size_y(){ return tile_map.size(); }
 private:
 	TileMap tile_map;
 
