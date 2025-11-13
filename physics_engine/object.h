@@ -2,6 +2,7 @@
 #include "physics_engine_manager.h"
 #include "memory.h"
 #include "way_finding_manager.h"
+#include "check_manager.h"
 
 class Object
 {
@@ -26,6 +27,7 @@ public:
 protected:
 	std::shared_ptr<PhysicsBox> physics_box;
 	Result ways;
+	Result smoothed_ways;
 
 	Vector2 position;
 	Vector2 size;
@@ -42,7 +44,29 @@ protected:
 
 	void find_way(int x, int y)
 	{
+		work_out_tile_pos();
+
 		if (!WayFindingManager::instance()->find_way_to(tile_pos_x, tile_pos_y, x, y).empty())
 			ways = WayFindingManager::instance()->find_way_to(tile_pos_x, tile_pos_y, x, y);
+
+		smooth_ways();
+	}
+
+	void smooth_ways()
+	{
+		for (int i = ways.size() - 1; i >= 0; i--)
+		{
+			Vector2 distance(ways[i][0] * 32 + 16 - position.x, ways[i][1] * 32 + 16 - position.y);
+			if (CheckManager::instance()->check_no_wall_in_rect(position, size, distance))
+			{
+				smoothed_ways.clear();
+				for (int j = i; j < ways.size(); j++)
+				{
+					smoothed_ways.push_back(ways[j]);
+				}
+				return;
+			}
+		}
+		smoothed_ways = ways;
 	}
 };

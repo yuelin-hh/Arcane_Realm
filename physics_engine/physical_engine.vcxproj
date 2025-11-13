@@ -132,6 +132,7 @@
     <ClCompile Include="calculator.cpp" />
     <ClCompile Include="cell.cpp" />
     <ClCompile Include="cell_map.cpp" />
+    <ClCompile Include="check_manager.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="force.cpp" />
     <ClCompile Include="game_manager.cpp" />
@@ -152,13 +153,14 @@
     <ClCompile Include="wall_box.cpp" />
     <ClCompile Include="wayfinding.cpp" />
     <ClCompile Include="way_finding_manager.cpp" />
-    <ClCompile Include="源.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="accelerated_speed.h" />
     <ClInclude Include="calculator.h" />
     <ClInclude Include="cell.h" />
     <ClInclude Include="cell_map.h" />
+    <ClInclude Include="check_manager.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="force.h" />
     <ClInclude Include="game_manager.h" />

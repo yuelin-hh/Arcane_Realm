@@ -63,19 +63,22 @@ public:
 
 	void on_update(double delta)
 	{
-		work_out_tile_pos();
 		move();
+		
 		find_way(30, 10);
 	}
 
 	void on_render(SDL_Renderer* renderer)
 	{
-		if (ways.empty()) return;
+		if (smoothed_ways.empty()) return;
 		SDL_SetRenderDrawColor(renderer, 255, 100, 100, 255);
-		for (int i = 0; i < ways.size() - 1; i++)
+
+		SDL_RenderDrawLine(renderer, position.x, position.y,
+			smoothed_ways[0][0] * 32 + 16, smoothed_ways[0][1] * 32 + 16);
+		for (int i = 0; i < smoothed_ways.size() - 1; i++)
 		{
-			SDL_RenderDrawLine(renderer, ways[i][0] * 32 + 16, ways[i][1] * 32 + 16,
-				ways[i + 1][0] * 32 + 16, ways[i + 1][1] * 32 + 16);
+			SDL_RenderDrawLine(renderer, smoothed_ways[i][0] * 32 + 16, smoothed_ways[i][1] * 32 + 16,
+				smoothed_ways[i + 1][0] * 32 + 16, smoothed_ways[i + 1][1] * 32 + 16);
 		}
 	}
 

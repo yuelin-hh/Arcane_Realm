@@ -33,7 +33,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="源.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="thirdparty\cJSON\cJSON.c">
@@ -106,6 +106,9 @@
       <Filter>头文件\wayfinding</Filter>
     </ClCompile>
     <ClCompile Include="way_finding_manager.cpp">
+      <Filter>头文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="check_manager.cpp">
       <Filter>头文件\manager</Filter>
     </ClCompile>
   </ItemGroup>
@@ -183,6 +186,9 @@
       <Filter>头文件\object</Filter>
     </ClInclude>
     <ClInclude Include="way_finding_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="check_manager.h">
       <Filter>头文件\manager</Filter>
     </ClInclude>
   </ItemGroup>

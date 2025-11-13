@@ -40,7 +40,7 @@ private:
 				next = cell_map->call(temp->x + 1, temp->y);
 
 				s += 16 * (map->call(temp->x, temp->y).wall ? 1 : map->call(temp->x, temp->y).u
-					+ map->call(next->x,next->y).wall ? 1 : map->call(next->x,next->y).u);
+					+ map->call(next->x,next->y).wall ? 1 : map->call(next->x,next->y).u + 2);
 				temp = next;
 			}
 
@@ -51,7 +51,7 @@ private:
 					next = cell_map->call(temp->x, temp->y + 1);
 
 					s += 16 * (map->call(temp->x, temp->y).wall ? 1 : map->call(temp->x, temp->y).u
-						+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u);
+						+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u + 2);
 					temp = next;
 				}
 			}
@@ -62,7 +62,7 @@ private:
 					next = cell_map->call(temp->x, temp->y - 1);
 
 					s += 16 * (map->call(temp->x, temp->y).wall ? 1 : map->call(temp->x, temp->y).u
-						+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u);
+						+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u + 2);
 					temp = next;
 				}
 			}
@@ -74,7 +74,7 @@ private:
 				next = cell_map->call(temp->x - 1, temp->y);
 
 				s += 16 * (map->call(temp->x, temp->y).wall ? 1 : map->call(temp->x, temp->y).u
-					+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u);
+					+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u + 2);
 				temp = next;
 			}
 
@@ -85,7 +85,7 @@ private:
 					next = cell_map->call(temp->x, temp->y + 1);
 
 					s += 16 * (map->call(temp->x, temp->y).wall ? 1 : map->call(temp->x, temp->y).u
-						+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u);
+						+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u + 2);
 					temp = next;
 				}
 			}
@@ -96,7 +96,7 @@ private:
 					next = cell_map->call(temp->x, temp->y - 1);
 
 					s += 16 * (map->call(temp->x, temp->y).wall ? 1 : map->call(temp->x, temp->y).u
-						+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u);
+						+ map->call(next->x, next->y).wall ? 1 : map->call(next->x, next->y).u + 2);
 					temp = next;
 				}
 			}
