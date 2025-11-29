@@ -56,6 +56,5 @@ double Velocity::mgt()
 
 double Velocity::get_speed_in_direction(Vector2& direction)
 {
-	double radian = std::atan2(direction.y, direction.x);
-	return x * cos(radian) + y * sin(radian);
+	return x * direction.normalize().x + y * direction.normalize().y;
 }

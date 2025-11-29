@@ -27,7 +27,7 @@ private:
 	std::shared_ptr<CellMap> cell_map = nullptr;
 	Map* map;
 
-	double distance(std::shared_ptr<Cell> c1, std::shared_ptr<Cell> c2)
+	/*double distance(std::shared_ptr<Cell> c1, std::shared_ptr<Cell> c2)
 	{
 		std::shared_ptr<Cell> temp = c1;
 		std::shared_ptr<Cell> next = c2;
@@ -103,6 +103,23 @@ private:
 		}
 		
 		return s;
+	}*/
+
+	double distance(std::shared_ptr<Cell> c1, std::shared_ptr<Cell> c2)
+	{
+		// 基础曼哈顿距离
+		int dx = std::abs(c1->x - c2->x);
+		int dy = std::abs(c1->y - c2->y);
+		double base_distance = dx + dy;
+
+		// 考虑起点和终点的地形代价（可选）
+		double terrain_cost = 0;
+		if (!map->call(c1->x, c1->y).wall)
+			terrain_cost += map->call(c1->x, c1->y).u;
+		if (!map->call(c2->x, c2->y).wall)
+			terrain_cost += map->call(c2->x, c2->y).u;
+
+		return base_distance + terrain_cost * 0.1; // 地形代价权重
 	}
 
 	void add_to_tree(Tree& tree, std::shared_ptr<Node> node, std::shared_ptr<Cell> target)

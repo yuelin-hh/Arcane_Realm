@@ -1,6 +1,5 @@
 #pragma once
 #include "tile.h"
-#include "physics_engine_manager.h"
 
 #include <SDL.h>
 #include <string>
@@ -17,7 +16,7 @@ public:
 	{
 		std::ifstream file(path, std::ios::binary);  // 用二进制模式打开
 		if (!file.good()) return false;
-
+		
 		// 检查并跳过BOM
 		char bom[3];
 		file.read(bom, 3);
@@ -61,7 +60,6 @@ public:
 			return false;
 
 		tile_map = tile_map_temp;
-		build_wall();
 
 		//std::cout << tile_map[0][0].wall;
 		return true;
@@ -87,13 +85,22 @@ public:
 
 	const Tile& call(int x, int y)
 	{
-		return tile_map[y][x];
+		if (y >= 0 && x >= 0 && y < tile_map.size() && x < tile_map[0].size())
+			return tile_map[y][x];
+		else
+			return null_tile;
 	}
 
 	int size_x(){ return tile_map[0].size(); }
 	int size_y(){ return tile_map.size(); }
+
+	bool check_is_created(){ return is_created; }
+	void set_is_created(){ is_created = true; }
+
 private:
+	Tile null_tile;
 	TileMap tile_map;
+	bool is_created = false;
 
 	std::string trim_str(const std::string& str)
 	{
@@ -130,109 +137,5 @@ private:
 
 		tile.wall = (values.size() < 1 || (values[0] != 0 && values[0] != 1)) ? 0 : values[0];
 		tile.u = (values.size() < 2 || (values[1] == -1)) ? 0.2 : values[1];
-	}
-
-	void build_wall()
-	{
-		for (int i = 0; i < get_height(); i++)
-		{
-			for (int j = 0; j < get_width(); j++)
-			{
-				if (tile_map[i][j].wall == 1 && tile_map[i][j].wall_box == nullptr)
-				{
-					//std::cout << i << "  " << j << "  " << (tile_map[i][j].wall_box == nullptr) << std::endl;
-					int x = check_in_column(i, j);
-					int y = check_in_row(i, j);
-
-					if (x >= y)
-					{
-						fill_wall(i, j, check_column_in_row(i, j, x), x);
-					}
-					else
-					{
-						fill_wall(i, j, y, check_row_in_column(i, j, y));
-					}
-				}
-			}
-		}
-	}
-	
-	int check_in_column(int i, int j)
-	{
-		int num = 0;
-		while (j < get_width() && tile_map[i][j].wall == 1 && tile_map[i][j].wall_box == nullptr)
-		{
-			num++;
-			j++;
-		}
-		return num;
-	}
-
-	int check_in_row(int i, int j)
-	{
-		int num = 0;
-		while (i < get_height() && tile_map[i][j].wall == 1 && tile_map[i][j].wall_box == nullptr)
-		{
-			num++;
-			i++;
-		}
-		return num;
-	}
-
-	int check_column_in_row(int i, int j, int length)
-	{
-		int sum = 0;
-		bool flag = true;
-
-		while (flag && i < get_height())
-		{
-			for (int idx = j; idx < j + length; idx++)
-			{
-				if (tile_map[i][idx].wall != 1 || tile_map[i][idx].wall_box != nullptr)
-				{
-					flag = false;
-				}
-			}
-			i++;
-			sum++;
-		}
-		if (i == get_height())sum++;
-		return sum - 1;
-	}
-
-	int check_row_in_column(int i, int j, int length)
-	{
-		int sum = 0;
-		bool flag = true;
-
-		while (flag && j < get_width())
-		{
-			for (int idx = i; idx < i + length; idx++)
-			{
-				if (tile_map[idx][j].wall != 1 || tile_map[idx][j].wall_box != nullptr)
-					flag = false;
-			}
-			j++;
-			sum++;
-		}
-		if (j == get_width())sum++;
-		return sum - 1;
-	}
-
-	void fill_wall(int i, int j, int height, int width)
-	{
-		Vector2 pos(j * 32, i * 32);
-
-		Vector2 size(width * 32, height * 32);
-
-		std::shared_ptr<WallBox> box = PhysicsEngineManager::instance()->create_wall_box(pos, size);
-
-		for (int idx_y = i; idx_y < i + height; idx_y++)
-		{
-			for (int idx_x = j; idx_x < j + width; idx_x++)
-			{
-				tile_map[idx_y][idx_x].wall_box = box;
-			}
-		}
 	}
 };

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\cJSON">
+      <UniqueIdentifier>{a18349a9-faca-442b-8fb1-c9596ab2358d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\map">
+      <UniqueIdentifier>{99b6b37f-4941-4f19-aa51-3dce940aa45a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\manager">
+      <UniqueIdentifier>{2b411605-1e7f-4da5-a6ae-d4c61800e7f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\tool">
+      <UniqueIdentifier>{b719bc7c-fa9c-4897-9883-a095cf0478f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\button">
+      <UniqueIdentifier>{dcceb576-3eeb-46ee-be98-a882afa10569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\topic">
+      <UniqueIdentifier>{6d5be4e5-6ce1-4262-94dd-67571057dfed}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\cJSON\cJSON.c">
+      <Filter>源文件\cJSON</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="file_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="map_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="tile.h">
+      <Filter>头文件\map</Filter>
+    </ClInclude>
+    <ClInclude Include="map.h">
+      <Filter>头文件\map</Filter>
+    </ClInclude>
+    <ClInclude Include="total_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="resources_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>头文件\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>头文件\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2.h">
+      <Filter>头文件\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>头文件\button</Filter>
+    </ClInclude>
+    <ClInclude Include="button_group.h">
+      <Filter>头文件\button</Filter>
+    </ClInclude>
+    <ClInclude Include="group_file.h">
+      <Filter>头文件\button</Filter>
+    </ClInclude>
+    <ClInclude Include="group_tile.h">
+      <Filter>头文件\button</Filter>
+    </ClInclude>
+    <ClInclude Include="button_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="message_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="topic.h">
+      <Filter>头文件\topic</Filter>
+    </ClInclude>
+    <ClInclude Include="message.h">
+      <Filter>头文件\topic</Filter>
+    </ClInclude>
+    <ClInclude Include="transcoder.h">
+      <Filter>头文件\topic</Filter>
+    </ClInclude>
+    <ClInclude Include="group_select.h">
+      <Filter>头文件\button</Filter>
+    </ClInclude>
+    <ClInclude Include="input_manager.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

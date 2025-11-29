@@ -111,6 +111,12 @@
     <ClCompile Include="check_manager.cpp">
       <Filter>头文件\manager</Filter>
     </ClCompile>
+    <ClCompile Include="create_wall_tool.cpp">
+      <Filter>头文件\map</Filter>
+    </ClCompile>
+    <ClCompile Include="obstacle_avoidence.cpp">
+      <Filter>头文件\wayfinding</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_manager.h">
@@ -190,6 +196,12 @@
     </ClInclude>
     <ClInclude Include="check_manager.h">
       <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="create_wall_tool.h">
+      <Filter>头文件\map</Filter>
+    </ClInclude>
+    <ClInclude Include="obstacle_avoidence.h">
+      <Filter>头文件\wayfinding</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

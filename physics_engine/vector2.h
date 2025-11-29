@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cmath>
-
+#include <iostream>
 /*
 * 向量
 * 记得normalize返回单位向量
@@ -44,4 +44,9 @@ public:
 	Vector2 normalize() const;
 
 	bool approx_zero() const;
+
+	friend std::ostream& operator<< (std::ostream& os, const Vector2& vector2)
+	{
+		return os << vector2.x << "   " << vector2.y << std::endl;
+	}
 };

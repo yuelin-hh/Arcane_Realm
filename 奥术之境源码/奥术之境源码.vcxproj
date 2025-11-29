@@ -111,6 +111,9 @@
       <AdditionalLibraryDirectories>..\奥术之境源码\thirdparty\SDL2_ttf\lib\x64;..\奥术之境源码\thirdparty\SDL2_mixer\lib\x64;..\奥术之境源码\thirdparty\SDL2_image\lib\x64;..\奥术之境源码\thirdparty\SDL2_gfx\lib\x64;..\奥术之境源码\thirdparty\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_gfx.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

@@ -51,7 +51,9 @@ public:
 
 	void add_impulse(Impulse I1)
 	{
-		//std::cout << I1.x << "  " << I1.y << std::endl;
+		/*if(I1.mgt()>1)
+			std::cout << I1.x << "  " << I1.y << std::endl;*/
+		if (I1.mgt() >= 50) return;
 		I += I1;
 	}
 
@@ -122,6 +124,21 @@ public:
 		position += x;
 	}
 
+	void set_velocity(Velocity v1)
+	{
+		v = v1;
+	}
+
+	void set_safe_position()
+	{
+		safe_position = position;
+	}
+
+	void back_to_safe_position()
+	{
+		position = safe_position;
+	}
+
 private:
 	void recode_force()
 	{
@@ -184,6 +201,7 @@ private:
 private:
 	Vector2& position;
 	Vector2 size;
+	Vector2 safe_position;
 	double radius = 0;
 	int code = 0;
 	Shape shape;

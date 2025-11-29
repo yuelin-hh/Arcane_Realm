@@ -3,6 +3,8 @@
 #include "physics_collide_box.h"
 #include "wall_box.h"
 #include "tile.h"
+#include "map.h"
+
 #include <array>
 
 struct BoxAndTime
@@ -27,6 +29,7 @@ public:
 	{
 		for (auto box : physics_box_list)
 		{
+			box->box->set_u(0.2);
 			box->box->on_update(delta);
 		}
 
@@ -41,11 +44,9 @@ public:
 	
 	void on_render(SDL_Renderer* renderer);
 
-	
-
-	void set_map(TileMap& tile_map)
+	void set_map(Map* map)
 	{
-		this->tile_map = tile_map;
+		this->map = map;
 	}
 
 protected:
@@ -59,7 +60,7 @@ private:
 
 	bool flag = true;
 
-	TileMap tile_map;
+	Map* map;
 	PhysicsBoxList physics_box_list;
 	WallBoxList wall_list;
 	ResultList result_list;
@@ -90,16 +91,16 @@ private:
 		}
 	}
 
-	void print()
+	bool check_in_wall(Vector2 position, Vector2 size)
 	{
-		for (const auto& a : tile_map)
+		if (map->call((position.x - size.x / 2) / 32, (position.y - size.y / 2) / 32).wall == 1||
+			map->call((position.x + size.x / 2) / 32, (position.y - size.y / 2) / 32).wall == 1||
+			map->call((position.x - size.x / 2) / 32, (position.y + size.y / 2) / 32).wall == 1||
+			map->call((position.x + size.x / 2) / 32, (position.y + size.y / 2) / 32).wall == 1)
 		{
-			for (const auto& b : a)
-			{
-				std::cout << b.wall << " ";
-			}
-			std::cout << "\n";
+			return true;
 		}
+		return false;
 	}
 };
 

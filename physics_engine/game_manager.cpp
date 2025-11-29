@@ -3,6 +3,7 @@
 #include "physics_engine_manager.h"
 #include "input_method_manager.h"
 #include "map_manager.h"
+#include "create_wall_tool.h"
 
 GameManager::GameManager()
 {
@@ -34,7 +35,7 @@ int GameManager::run(int argc, char** argv)
 
 	while (!is_quit)
 	{
-8;		while (SDL_PollEvent(&event))
+		while (SDL_PollEvent(&event))
 			on_input();
 		Uint64 current_counter = SDL_GetPerformanceCounter();
 		double delta = (double)(current_counter - last_counter) / counter_freq;
@@ -82,6 +83,7 @@ void GameManager::on_input()
 
 void GameManager::on_update(double delta)
 {
+	CreateWallTool::instance()->create_wall();
 	MapManager::instance()->on_update(delta);
 	ObjectManager::instance()->on_update(delta);
 	PhysicsEngineManager::instance()->on_update(delta);

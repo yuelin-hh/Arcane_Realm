@@ -1,4 +1,6 @@
 #include "physics_engine_manager.h"
+#include "check_manager.h"
+
 #include <algorithm>
 
 PhysicsEngineManager::PhysicsEngineManager()
@@ -49,235 +51,33 @@ void PhysicsEngineManager::on_render(SDL_Renderer* renderer)
 
 void PhysicsEngineManager::check_collide_with_wall(std::shared_ptr<BoxAndTime> box, double t)
 {
-	if (t > 0.5)return;
+	if (check_in_wall(box->box->get_position(), box->box->get_size()))
+	{
+		box->box->back_to_safe_position();
+		box->t -= t;
+		return;
+	}
 
-	int i_dst = 0, j_dst = 0;
-	Vector2 distance;
-	bool flag;
-	double t_current = t;
-	double y_time = -1, x_time = -1;
+	box->box->set_safe_position();
+	Vector2 distance = box->box->get_velocity() * t;
 
-	flag = false;
-	distance = box->box->get_velocity() * t;
-	t_current = t;
-
-	try {
-		while (true)
+	if (check_in_wall(box->box->get_position() + distance, box->box->get_size()))
+	{
+		if (!check_in_wall(Vector2(box->box->get_position().x + distance.x, box->box->get_position().y), box->box->get_size()))
 		{
-			if (t_current <= 0.001)
-				break;
-			if (distance.x <= 0.000001 && distance.x >= -0.000001 && distance.y <= 0.000001 && distance.y >= -0.000001)
-				{
-					break;
-				}
-			else if (distance.x <= 0.000001 && distance.x >= -0.000001)
-				{
-					int i = (int)((box->box->get_position().y + distance.y + box->box->get_size().y / 2 * get_symbol(distance.y)) / 32);
-
-					for (int j = (int)((box->box->get_position().x - box->box->get_size().x / 2) / 32);
-						j <= (int)((box->box->get_position().x + box->box->get_size().x / 2) / 32); j++)
-					{
-						if (tile_map.at(i).at(j).wall == 1)
-						{
-							i_dst = i, j_dst = j;
-							flag = true;
-							break;
-						}
-					}
-
-					if (flag)
-					{
-						Vector2 temp_distance;
-						temp_distance.y = (i_dst * 32 - 16 * get_symbol(distance.y) + 16) - (box->box->get_position().y + box->box->get_size().y / 2 * get_symbol(distance.y)) - get_symbol(distance.y);
-						
-						box->box->move(temp_distance);
-						Impulse I(0, -box->box->get_velocity().y * box->box->get_weight());
-						box->box->add_impulse(I);
-						if (box->box->is_can_bounce())
-						{
-							box->box->move(temp_distance - distance);
-							box->box->add_impulse(I);
-						}
-					}
-					else
-					{
-						box->box->move(distance);
-					}
-					break;
-				}
-			else if (distance.y <= 0.000001 && distance.y >= -0.000001)
-				{
-					int j = (int)((box->box->get_position().x + distance.x + box->box->get_size().x / 2 * get_symbol(distance.x)) / 32);
-
-					for (int i = (int)((box->box->get_position().y - box->box->get_size().y / 2) / 32);
-						i <= (int)((box->box->get_position().y + box->box->get_size().y / 2) / 32); i++)
-					{
-						if (tile_map.at(i).at(j).wall == 1)
-						{
-							i_dst = i, j_dst = j;
-							flag = true;
-							break;
-						}
-					}
-
-					if (flag)
-					{
-						Vector2 temp_distance;
-						temp_distance.x = (j_dst * 32 - 16 * get_symbol(distance.x) + 16) - (box->box->get_position().x + box->box->get_size().x / 2 * get_symbol(distance.x)) - get_symbol(distance.x);
-
-						box->box->move(temp_distance);
-						Impulse I(-box->box->get_velocity().x * box->box->get_weight(), 0);
-						box->box->add_impulse(I);
-						if (box->box->is_can_bounce())
-						{
-							box->box->move(temp_distance - distance);
-							box->box->add_impulse(I);
-						}
-					}
-					else
-					{
-						box->box->move(distance);
-					}
-					break;
-				}
-			else
-				{
-					y_time = -1, x_time = -1;
-
-					i_dst = (int)((box->box->get_position().y + distance.y + box->box->get_size().y / 2 * get_symbol(distance.y)) / 32);
-					y_time = ((i_dst * 32 - 16 * get_symbol(distance.y) + 16) - (box->box->get_position().y + box->box->get_size().y / 2 * get_symbol(distance.y)) - get_symbol(distance.y)*2) / box->box->get_velocity().y / 32;
-
-					if (y_time <= t_current)
-					{
-						flag = false;
-						for (int j = int((box->box->get_position().x - box->box->get_size().x / 2 + box->box->get_velocity().x * y_time) / 32);
-							j <= int((box->box->get_position().x + box->box->get_size().x / 2 + box->box->get_velocity().x * y_time) / 32); j++)
-						{
-							if (tile_map.at(i_dst).at(j).wall == 1)
-							{
-								flag = true;
-								break;
-							}
-						}
-						if (!flag)
-							y_time = -1;
-					}
-					else
-					{
-						y_time = -1;
-					}
-
-
-					j_dst = (int)((box->box->get_position().x + distance.x + box->box->get_size().x / 2 * get_symbol(distance.x)) / 32);
-					x_time = ((j_dst * 32 - 16 * get_symbol(distance.x) + 16) - (box->box->get_position().x + box->box->get_size().x / 2 * get_symbol(distance.x)) - get_symbol(distance.x)*2) / box->box->get_velocity().x / 32;
-
-					if (x_time <= t_current)
-					{
-						flag = false;
-						for (int i = int((box->box->get_position().y - box->box->get_size().y / 2 + box->box->get_velocity().y * x_time) / 32);
-							i <= int((box->box->get_position().y + box->box->get_size().y / 2 + box->box->get_velocity().y * x_time) / 32); i++)
-						{
-							if (tile_map.at(i).at(j_dst).wall == 1)
-							{
-								flag = true;
-								break;
-							}
-						}
-						if (!flag)
-							x_time = -1;
-					}
-					else
-					{
-						x_time = -1;
-					}
-
-					if (y_time == -1 && x_time == -1)
-					{
-						box->box->move(distance);
-						break;
-					}
-					else if (y_time == -1)
-					{
-						Vector2 distance_temp;
-						distance_temp.x = box->box->get_velocity().x * x_time;
-						distance_temp.y = distance.y;
-						box->box->move(distance_temp);
-						Impulse I(-box->box->get_velocity().x * box->box->get_weight(), 0);
-						box->box->add_impulse(I);
-						if (box->box->is_can_bounce())
-						{
-							box->box->move(distance_temp - distance);
-							box->box->add_impulse(I);
-						}
-						break;
-					}
-					else if (x_time == -1)
-					{
-						Vector2 distance_temp;
-						distance_temp.y = box->box->get_velocity().y * y_time;
-						distance_temp.x = distance.x;
-						box->box->move(distance_temp);
-						Impulse I(0, -box->box->get_velocity().y * box->box->get_weight());
-						box->box->add_impulse(I);
-						if (box->box->is_can_bounce())
-						{
-							box->box->move(distance_temp - distance);
-							box->box->add_impulse(I);
-						}
-						break;
-					}
-					else if (y_time < x_time)
-					{
-						Vector2 distance_temp;
-						distance_temp.y = box->box->get_velocity().y * y_time;
-						distance_temp.x = box->box->get_velocity().x * y_time;
-						box->box->move(distance_temp);
-						Impulse I(0, -box->box->get_velocity().y * box->box->get_weight());
-						box->box->add_impulse(I);
-						t_current -= abs(y_time);
-						if (box->box->is_can_bounce())
-						{
-							box->box->add_impulse(I);
-							distance -= distance_temp;
-							distance.y = -distance.y;
-						}
-						else
-						{
-							distance -= distance_temp;
-							distance.y = 0;
-						}
-						box->box->on_update(y_time);
-					}
-					else
-					{
-						Vector2 distance_temp;
-						distance_temp.y = box->box->get_velocity().y * x_time;
-						distance_temp.x = box->box->get_velocity().x * x_time;
-						box->box->move(distance_temp);
-						Impulse I(-box->box->get_velocity().x * box->box->get_weight(), 0);
-						box->box->add_impulse(I);
-						t_current -= abs(x_time);
-						if (box->box->is_can_bounce())
-						{
-							box->box->add_impulse(I);
-							distance -= distance_temp;
-							distance.y = -distance.y;
-						}
-						else
-						{
-							distance -= distance_temp;
-							distance.x = 0;
-						}
-						box->box->on_update(x_time);
-					}
-				}
-
+			box->box->move(Vector2(distance.x, 0));
+			box->box->set_velocity(Velocity(box->box->get_velocity().x, 0));
+		}
+		if (!check_in_wall(Vector2(box->box->get_position().x, box->box->get_position().y + distance.y), box->box->get_size()))
+		{
+			box->box->move(Vector2(0, distance.y));
+			box->box->set_velocity(Velocity(0, box->box->get_velocity().y));
 		}
 	}
-	catch(std::out_of_range)
-		{
-		}
-
+	else
+	{
+		box->box->move(distance);
+	}
 	box->t -= t;
 }
 

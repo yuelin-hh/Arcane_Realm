@@ -7,6 +7,7 @@ public:
 	Force();
 	Force(double x,double y);
 	Force(Vector2 direction, double mgt);
+	Force(Vector2 direction);
 	~Force();
 
 	Force operator+(const Force& F) const;

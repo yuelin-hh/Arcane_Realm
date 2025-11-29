@@ -2,39 +2,47 @@
 #include "manager.h"
 #include "object.h"
 #include "player.h"
+#include "entity.h"
 
 class ObjectManager:public Manager<ObjectManager>
 {
 	friend class Manager<ObjectManager>;
 public:
-	using ObjectList = std::vector<std::shared_ptr<Object>>;
+	using EntityList = std::vector<std::shared_ptr<Entity>>;
 
 	void on_input(SDL_Event& event)
 	{
-		for(auto object:object_list)
-			object->on_input(event);
+		if(player)
+			player->on_input(event);
 	}
 
 	void on_update(double delta)
 	{
 		if (flag)
 		{
-			object_list.push_back(std::make_shared<Player>());
-			object_list[0]->set_position(100, 200);
+			player = std::make_shared<Player>();
+			entity_list.push_back(std::make_shared<Entity>());
+			entity_list[0]->set_position(100, 200);
+			player->set_position(500, 200);
 			flag = false;
 		}
 
-		for (auto object : object_list)
+		player->on_update(delta);
+
+		for (auto entity : entity_list)
 		{
-			object->on_update(delta);
+			entity->set_player_position(player->get_position());
+			entity->on_update(delta);
 		}
 	}
 
 	void on_render(SDL_Renderer* renderer)
 	{
-		for (auto object : object_list)
+		player->on_render(renderer);
+
+		for (auto entity : entity_list)
 		{
-			object->on_render(renderer);
+			entity->on_render(renderer);
 		}
 	}
 protected:
@@ -42,7 +50,8 @@ protected:
 	~ObjectManager();
 
 private:
-	ObjectList object_list;
+	EntityList entity_list;
+	std::shared_ptr<Player> player;
 
 	bool flag = true;
 };
